@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="  p-3 pt-5 col-lg-5 mx-auto border rounded  ">
+            <h4 class="alert alert-light border rounded">Create an account</h4>
+            <form action="/signup" method="POST">
+              {% csrf_token %}
+              {% if error %}
+              <div class="alert alert-danger" role="alert">
+                <strong>{{error}}</strong>
+              </div>
+              {%endif%}
+                <!-- Fist Name -->
+                <div class="form-group  ">
+                    <label for="">First Name</label>
+                    <input type="text" name="firstname" value="{{values.first_name}}" id="" class="form-control form-control-sm" placeholder="" >
+                  </div>
+
+                <!--Last Name  -->
+                  <div class="form-group">
+                    <label for="">Last Name</label>
+                    <input type="text" name="lastname" value="{{values.last_name}}" id="" class="form-control form-control-sm" placeholder="" >
+                  </div>
+
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label for="">Phone</label>
+                    <input type="text" name="phone" value="{{values.phone}}" id="" class="form-control form-control-sm" placeholder="85458698526" >
+                  </div>
+
+                <!-- Email -->
+
+                <div class="form-group">
+                  <label for="">Email</label>
+                  <input required type="email" value="{{values.email}}"  name="email" id="" class="form-control form-control-sm" placeholder="your@gmail.com" >
+                </div>
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="">password</label>
+                    <input type="password" name="password" id="" class="form-control form-control-sm" placeholder="********" >
+                  </div>
+
+                  <!-- button -->
+                  <div class="form-group my-2">
+                      <input class="btn btn-sm btn-primary" type="submit" value="Crate account">
+                  </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
