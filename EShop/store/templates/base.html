@@ -36,7 +36,9 @@
                       <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="/cart">Cart</a>
+                      <a class="nav-link active" aria-current="page" href="/cart">Cart
+                      <span class="badge badge-info"><small>{{request.session.cart.keys|length}}</small></span>
+                      </a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link active" aria-current="page" href="/order">Order</a>

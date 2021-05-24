@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+{%load cart%}
+{%load custome_filter %}
+<div class="container">
+    
+    <div class="border rounded p-4 m-4">
+        <p class="display-4 pl-4 ml-4"> Your Orders</p>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sno.</th>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Status</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for orders in order%}
+                <tr>
+                    <td >{{forloop.counter}}</td>
+                    <td><img style="height: 80px;" class="rounded-circle" src="{{orders.product.image.url}}" alt=""></td>
+                    <td>{{orders.product.name}}</td>
+                    <td>{{orders.product.price|currency}}</td>
+                        <td>{{orders.quantity}}</td>
+                    <td>{{orders.quantity|multiply:orders.price}}</td>
+                    
+                    {% if orders.status%}
+                        {% comment %} <td><small class="badge badge-success">Completed</small></td> {% endcomment %}
+                        <td>success</td>
+                    {% else %}
+                        <td>panding</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}            
+            </tbody>
+            
+        </table>
+        
+        
+
+    </div>
+</div>
+    <!-- modal -->
+   
+{% endblock %}
+ 
